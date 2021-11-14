@@ -4,4 +4,5 @@ Planetakino site testing using Selenide and Serenity BDD (with Cucumber) framewo
 <p> On environment variables you need indicate:
 
 	- your email which you use as user name ('USER_EMAIL');
-	- password for planetakino (https://planetakino.ua/) site ('PLANETA_KINO_PASSWORD'). <p/>
+	- password for planetakino (https://planetakino.ua/) site ('PLANETA_KINO_PASSWORD').
+</p>
