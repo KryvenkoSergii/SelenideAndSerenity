@@ -43,5 +43,18 @@ public class ShowtimesPage extends BasePage {
         }
         return films;
     }
-
+    
+    public boolean isTechnologyPresents(String technology) {
+        logger.info("start isTechnologyPresents()");
+        boolean is4dxPresents = false;
+        for (Film film : openShowtimesPage().getFilmList()) {
+//            System.out.println(film.toString());
+            for (String key : film.getTechnologies().keySet()) {
+                if (key.contains("4DX")) {
+                    is4dxPresents = true;
+                }
+            }
+        }
+        return is4dxPresents;
+    }
 }

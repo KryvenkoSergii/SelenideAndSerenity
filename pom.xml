@@ -155,6 +155,18 @@
 			<artifactId>serenity-core</artifactId>
 			<version>${net.serenity-bdd.version}</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>net.serenity-bdd</groupId>
+		    <artifactId>serenity-junit</artifactId>
+		    <version>${net.serenity-bdd.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>net.serenity-bdd</groupId>
+		    <artifactId>serenity-cucumber</artifactId>
+		    <version>${net.serenity-bdd.version}</version>
+		</dependency>
 
 		<!-- - - - Logger - - - -->
 		<dependency>
@@ -339,10 +351,20 @@
 				<version>3.0.0-M5</version>
 			</plugin>
 
-			<!-- <plugin> <groupId>net.serenity-bdd.maven.plugins</groupId> <artifactId>serenity-maven-plugin</artifactId> 
-				<version>1.2.5-rc.6</version> <executions> <execution> <id>serenity-reports</id> 
-				<phase>post-integration-test</phase> <goals> <goal>aggregate</goal> </goals> 
-				</execution> </executions> </plugin> -->
+			<plugin>
+				<groupId>net.serenity-bdd.maven.plugins</groupId>
+				<artifactId>serenity-maven-plugin</artifactId>
+				<version>1.2.5-rc.6</version>
+				<executions>
+					<execution>
+						<id>serenity-reports</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>aggregate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
 		</plugins>
 	</build>
