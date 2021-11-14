@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.softserve</groupId>
+	<artifactId>SelenideAndSerenity</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<name>SelenideAndSerenity</name>
+
+	<properties>
+		<!-- - - - - - Credentionals - - - - - -->
+		<application.password>null123</application.password>
+		<application.test.xml>testng_bdd.xml</application.test.xml>
+		<resources.folder>src/main/resources</resources.folder>
+		<!-- - - - - - Encoding - - - - - -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>
+		<!-- - - - - - Java - - - - - -->
+		<jdk.source.version>1.8</jdk.source.version>
+		<jdk.compiler.version>1.8</jdk.compiler.version>
+		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+		<!-- - - - - - Test - - - - - -->
+		<org.testng.version>6.14.3</org.testng.version>
+		<junit.version>4.12</junit.version>
+		<maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+
+		<!-- - - - - - Automation - - - - - -->
+		<apache.commons.io.version>2.6</apache.commons.io.version>
+		<io.github.bonigarcia.version>4.3.1</io.github.bonigarcia.version>
+		<com.codeborne.phantomjsdriver.version>1.4.4</com.codeborne.phantomjsdriver.version>
+		<maven.os-maven-plugin.version>1.6.2</maven.os-maven-plugin.version>
+		<maven.webdriverextensions-maven-plugin.version>3.2.0</maven.webdriverextensions-maven-plugin.version>
+		<org.seleniumhq.selenium.version>3.141.59</org.seleniumhq.selenium.version>
+		<com.codeborne.selenide.version>5.2.4</com.codeborne.selenide.version>
+
+		<!-- - - - - - Grid - - - - - -->
+		<org.seleniumhq.selenium.htmlunit-driver>2.36.0</org.seleniumhq.selenium.htmlunit-driver>
+
+		<!-- - - - - - BDD - - - - - -->
+		<io.cucumber-java.version>6.8.1</io.cucumber-java.version>
+		<io.cucumber-junit.version>6.8.1</io.cucumber-junit.version>
+		<io.cucumber-testng.version>6.8.1</io.cucumber-testng.version>
+		<net.serenity-bdd.version>3.0.3</net.serenity-bdd.version>
+
+		<!-- - - - - - Reports - - - - - -->
+		<test.reports.directory>./target/surefire-reports/test-output</test.reports.directory>
+		<allure.version>2.13.5</allure.version>
+		<aspectj.version>1.8.10</aspectj.version>
+		<!-- - - - - - Logging - - - - - -->
+		<org.slf4j.version>1.7.30</org.slf4j.version>
+
+		<!-- - - - - - Test Data Supplier - - - - - -->
+		<io.github.sskorol.version>1.7.0</io.github.sskorol.version>
+		<!-- - - - - - JSON Test Fixture - - - - - -->
+		<ie.corballis.json-fixtures-lib.version>3.0.0</ie.corballis.json-fixtures-lib.version>
+
+		<org.json.simple.version>1.1.1</org.json.simple.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- - - - - - Test - - - - - -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${org.testng.version}</version>
+			<!-- <scope>test</scope> -->
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.awaitility</groupId>
+			<artifactId>awaitility</artifactId>
+			<version>4.0.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.19.0</version>
+		</dependency>
+
+		<!--- - - - - Automation - - - - - -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>${org.seleniumhq.selenium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${org.seleniumhq.selenium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>htmlunit-driver</artifactId>
+			<version>${org.seleniumhq.selenium.htmlunit-driver}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.codeborne</groupId>
+			<artifactId>phantomjsdriver</artifactId>
+			<version>${com.codeborne.phantomjsdriver.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>${io.github.bonigarcia.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${apache.commons.io.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.codeborne</groupId>
+			<artifactId>selenide</artifactId>
+			<version>${com.codeborne.selenide.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- - - - - - BDD - - - - - - - -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${io.cucumber-java.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>${io.cucumber-junit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>${io.cucumber-testng.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-core</artifactId>
+			<version>${net.serenity-bdd.version}</version>
+		</dependency>
+
+		<!-- - - - Logger - - - -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- - - - - - - Reports - - - -->
+		<!-- <dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-testng</artifactId>
+			<version>${allure.version}</version>
+			<scope>test</scope>
+		</dependency> -->
+
+		<!-- <dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+			<scope>test</scope>
+		</dependency> -->
+
+		<dependency>
+			<groupId>io.github.sskorol</groupId>
+			<artifactId>test-data-supplier</artifactId>
+			<version>${io.github.sskorol.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ie.corballis</groupId>
+			<artifactId>json-fixtures-lib</artifactId>
+			<version>${ie.corballis.json-fixtures-lib.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>${org.json.simple.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.20</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<resources>
+			<resource>
+				<directory>${resources.folder}</directory>
+			</resource>
+		</resources>
+
+		<extensions>
+			<extension>
+				<groupId>kr.motd.maven</groupId>
+				<artifactId>os-maven-plugin</artifactId>
+				<version>${maven.os-maven-plugin.version}</version>
+			</extension>
+		</extensions>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven.resources.plugin.version}</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${jdk.source.version}</source>
+					<target>${jdk.compiler.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.webdriverextensions</groupId>
+				<artifactId>webdriverextensions-maven-plugin</artifactId>
+				<version>${maven.webdriverextensions-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>pre-test</id>
+						<goals>
+							<goal>install-drivers</goal>
+						</goals>
+						<!-- Uncomment for download automatically -->
+						<phase>test-compile</phase>
+						<!-- <phase>process-test-classes</phase> -->
+						<!-- <phase>test</phase> -->
+					</execution>
+				</executions>
+				<configuration>
+					<installationDirectory>${project.build.directory}/test-classes</installationDirectory>
+					<!-- <installationDirectory>${project.basedir}/src/test/resources</installationDirectory> -->
+					<keepDownloadedWebdrivers>true</keepDownloadedWebdrivers>
+					<drivers>
+						<driver>
+							<name>chromedriver</name>
+							<!--suppress UnresolvedMavenProperty -->
+							<platform>${os.detected.name}</platform>
+							<!-- <platform>windows</platform> -->
+							<bit>32</bit>
+							<!-- <url>https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_win32.zip</url> -->
+							<url>https://chromedriver.storage.googleapis.com/95.0.4638.69/chromedriver_win32.zip</url>
+						</driver>
+					</drivers>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.plugin.version}</version>
+				<configuration>
+					<argLine>
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+					</argLine>
+					<skipTests>false</skipTests>
+					<systemPropertyVariables>
+						<surefire.application.password>
+							${application.password}
+						</surefire.application.password>
+					</systemPropertyVariables>
+
+					<!-- <systemProperties> <property> <name>allure.results.directory</name> 
+						<value>${project.build.directory}/allure-results</value> </property> </systemProperties> -->
+
+					<includes>
+						<include>**/*.java</include>
+						<!-- <include>**/MyData.java</include> -->
+						<!-- <include>**/SimpleTest.java</include> -->
+						<!-- <include>**/FindTest.java</include> -->
+					</includes>
+
+					<excludes>
+						<exclude>**/AppTest.java</exclude>
+					</excludes>
+
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<!-- <suiteXmlFile>testng2.xml</suiteXmlFile> -->
+						<suiteXmlFile>${application.test.xml}</suiteXmlFile>
+					</suiteXmlFiles>
+
+					<reportsDirectory>${test.reports.directory}</reportsDirectory>
+					<!-- If we want Serenity to generate reports even if there's a test 
+						failure -->
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+				
+				<dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>3.0.0-M5</version>
+			</plugin>
+
+			<!-- <plugin> <groupId>net.serenity-bdd.maven.plugins</groupId> <artifactId>serenity-maven-plugin</artifactId> 
+				<version>1.2.5-rc.6</version> <executions> <execution> <id>serenity-reports</id> 
+				<phase>post-integration-test</phase> <goals> <goal>aggregate</goal> </goals> 
+				</execution> </executions> </plugin> -->
+
+		</plugins>
+	</build>
+
+</project>

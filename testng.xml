@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Planeta_Kino_TestSuite">
+
+	<!-- 3 ERROR 5 WARNING 7 INFO 9 TRACE -->
+	<test name="Login to Cabinet" verbose="2">
+	<parameter name="browser" value="chrome"/>
+	<parameter name="headless" value="false"/>
+		<classes>
+			<!-- Search one random word in google -->
+			<class name="com.softserve.tests.PlanetaKinoTestSuite">
+				<methods>
+					<include name="selectTop3FilmsAndAddToFavorites" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+
+</suite> <!-- Suite -->
