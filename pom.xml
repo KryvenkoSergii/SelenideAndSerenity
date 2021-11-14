@@ -14,7 +14,7 @@
 	<properties>
 		<!-- - - - - - Credentionals - - - - - -->
 		<application.password>null123</application.password>
-		<application.test.xml>testng_bdd.xml</application.test.xml>
+		<application.test.xml>testng.xml</application.test.xml>
 		<resources.folder>src/main/resources</resources.folder>
 		<!-- - - - - - Encoding - - - - - -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
